@@ -1,1 +1,1 @@
-web: gunicorn atsite --log-file
+web: gunicorn atsite --log-file -
