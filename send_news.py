@@ -1,8 +1,9 @@
-import os
 import locale
+import os
 import sqlite3
-import telebot
 from datetime import datetime
+
+import telebot
 
 locale.setlocale(
     category=locale.LC_ALL,
@@ -26,11 +27,11 @@ def read_sqlite_table():
         content = records[len(records) - 1][2]
         created_at = datetime.strptime(records[len(records) - 1][3], '%Y-%m-%d %H:%M:%S.%f').strftime(
             f'%d.%m.%Y | %A | %H:%M')
-        src = f"D:/Personal/Programm/Python/diplom.v3/atsite/media/{records[len(records) - 1][6]}".replace('/', '\\')
-        photo = open(src, 'rb')
-        bot.send_photo(CHAT_ID, photo, caption=f'<b>{title}</b>.\n\n'
-                                               f'{content}\n\n'
-                                               f'{created_at}')
+        # src = f"D:/Personal/Programm/Python/diplom.v3/atsite/media/{records[len(records) - 1][6]}".replace('/', '\\')
+        # photo = open(src, 'rb')
+        bot.send_message(CHAT_ID, '<b>{title}</b>.\n\n'
+                                  f'{content}\n\n'
+                                  f'{created_at}')
         cursor.close()
 
     except sqlite3.Error as error:
@@ -53,4 +54,4 @@ def watch_file_update(path):
 
 
 while 1:
-    watch_file_update(r'D:\Personal\Programm\Python\diplom.v3\atsite\db.sqlite3')
+    watch_file_update(os.path.abspath('db.sqlite3'))
