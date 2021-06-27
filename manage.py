@@ -8,10 +8,6 @@ from datetime import datetime
 
 import telebot
 
-locale.setlocale(
-    category=locale.LC_ALL,
-    locale="Uz"
-)
 
 
 def main():
@@ -47,7 +43,7 @@ def read_sqlite_table():
         title = records[len(records) - 1][1]
         content = records[len(records) - 1][2]
         created_at = datetime.strptime(records[len(records) - 1][3], '%Y-%m-%d %H:%M:%S.%f').strftime(
-            f'%d.%m.%Y | %A | %H:%M')
+            f'%d.%m.%Y | %H:%M')
         # src = f"D:/Personal/Programm/Python/diplom.v3/atsite/media/{records[len(records) - 1][6]}".replace('/', '\\')
         # photo = open(src, 'rb')
         bot.send_message(CHAT_ID, '<b>{title}</b>.\n\n'
