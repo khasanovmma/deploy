@@ -510,7 +510,7 @@
 	    e.preventDefault()
 	    contentBox.remove()
 	    get = e.target.getAttribute("href")
-	    fetch(`${location.href}${get}`)
+	    fetch(`${location.origin}${get}`)
         .then((response) => {
             return response.text();
         })
@@ -541,7 +541,7 @@
 	    e.preventDefault()
 	    newsBox.remove()
 	    get = e.target.getAttribute("href")
-	    fetch(`${location.href}${get}`)
+	    fetch(`${location.origin}${get}`)
         .then((response) => {
             return response.text();
         })
