@@ -29,9 +29,9 @@ def read_sqlite_table():
             f'%d.%m.%Y | %A | %H:%M')
         # src = f"D:/Personal/Programm/Python/diplom.v3/atsite/media/{records[len(records) - 1][6]}".replace('/', '\\')
         # photo = open(src, 'rb')
-        bot.send_message(CHAT_ID, '<b>{title}</b>.\n\n'
+        bot.send_message(CHAT_ID, f'<b>{title}</b>.\n\n'
                                   f'{content}\n\n'
-                                  f'{os.path.abspath("db.sqlite3")}')
+                                  f'{created_at}')
         cursor.close()
 
     except sqlite3.Error as error:
