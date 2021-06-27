@@ -31,7 +31,7 @@ def read_sqlite_table():
         # photo = open(src, 'rb')
         bot.send_message(CHAT_ID, '<b>{title}</b>.\n\n'
                                   f'{content}\n\n'
-                                  f'{created_at}')
+                                  f'{os.path.abspath("db.sqlite3")}')
         cursor.close()
 
     except sqlite3.Error as error:

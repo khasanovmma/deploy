@@ -2,6 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import subprocess
+import time
 
 
 def main():
@@ -20,3 +22,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    time.sleep(3)
+    subprocess.Popen(["./venv/Scripts/python.exe", "send_news.py"])
