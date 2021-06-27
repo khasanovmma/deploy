@@ -21,8 +21,8 @@ class News(models.Model):
 class Teachers(models.Model):
     full_name = models.CharField(max_length=150, verbose_name='Ф.И.О.')
     photo = models.ImageField(upload_to='photos/teachers/%Y/%m/%d/', verbose_name='Фото', blank=True)
-    degree = models.CharField(max_length=150, verbose_name='Учёное степень', blank=True)
-    rank = models.CharField(max_length=150, verbose_name='Ученые звание')
+    degree = models.CharField(max_length=150, verbose_name='Ученые звание', blank=True)
+    rank = models.CharField(max_length=150, verbose_name='Учёное степень')
     email = models.EmailField(max_length=150, verbose_name='Электронная почта')
 
     class Meta:

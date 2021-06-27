@@ -384,10 +384,10 @@
                     <div class="content__profession">
                         <h5 class="content__title">{{ teacher.degree }}</h5>
                         <div class="content__info">
-                            <p class="content__text">{{ teacher.full_name }}</p>
+                            <p class="content__text">{{ teacher.full_name|title  }}</p>
                         </div>
                     </div>
-                    <div class="content__tel"><h5 class="content__title">Telefon raqami</h5>
+                    <div class="content__tel"><h5 class="content__title">Ilmiy darajasi</h5>
                         <div class="content__info">
                             <span class="content__text">{{ teacher.rank }}</span>
                         </div>
@@ -407,12 +407,14 @@
                     </div>
                 </div>
                 {% endfor %}
-        </div>
+            </div>
+            <div class="pagination">
             <ul class="pagination__ul">
                 {% for teach_pag in teachers_range %}
                 <li class="pagination__num pagination__content"><a class="p__a" href="?teachers={{ teach_pag }}">{{ teach_pag }}</a></li>
                 {% endfor %}
             </ul>
+            </div>
         </div>
     </div>
 </section>
@@ -461,16 +463,40 @@
             <div class="contact__images"><img class="contact__img" src="{% static 'images/contact.webp' %}"
                                               alt="we are listening"/>
             </div>
-            <form action="" method="post" class="contact__info">
+            <form action="#!" method="post" class="contact__info">
                 {% csrf_token %}
 
                 {{ form.as_p }}
 
-                <button class="contact__button link__hover contact__link" type="submit">Yuborish</button>
+                <button class="contact__button link__hover contact__link" id="contactBtn" type="submit">Yuborish
+                </button>
             </form>
         </div>
+        <div class="modal-contact" id="contactModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="content-center">
+                    <h5 class="modal-block__title">
+                        <img
+                                class="contact"
+                                src="{% static 'images/png-clipart.webp' %}"
+                                alt="ok"
+                        />
+                    </h5>
+                    <h5 class="modal-block__title">Qabul qilindi.</h5>
+                </div>
+            </div>
+        </div>
     </div>
-    <script>
+</section>
+<footer class="footer"> 2021 Transportda axborot tizimlari va texnologiyalari</footer>
+<script>
+    let font = document.querySelectorAll("font")
+    for (let n=0; n<font.length; n++) {
+        font[n].addEventListener('click', (e)=> {
+        e.preventDefault()
+        })
+         }
     let content_link = document.querySelectorAll('.p__a')
     let contentBox = document.querySelector('.content__box')
     let contentPagination = document.querySelectorAll('.pagination__content')
@@ -484,7 +510,7 @@
 	    e.preventDefault()
 	    contentBox.remove()
 	    get = e.target.getAttribute("href")
-	    fetch(`http://127.0.0.1:8000/${get}`)
+	    fetch(`${location.href}${get}`)
         .then((response) => {
             return response.text();
         })
@@ -515,7 +541,7 @@
 	    e.preventDefault()
 	    newsBox.remove()
 	    get = e.target.getAttribute("href")
-	    fetch(`http://127.0.0.1:8000/${get}`)
+	    fetch(`${location.href}${get}`)
         .then((response) => {
             return response.text();
         })
@@ -532,9 +558,14 @@
 	    })
 }
 
+
+
+
+
+
 </script>
-</section>
-<footer class="footer"> 2021 Transportda axborot tizimlari va texnologiyalari</footer>
+
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 <script type="text/javascript"
