@@ -21,6 +21,7 @@ class FeedBackAdmin(admin.ModelAdmin):
 
 class TableAdmin(admin.ModelAdmin):
     list_display = ('table', 'created_at')
+    list_display_links = ('created_at',)
     search_fields = ('created_at',)
 
 

@@ -8,7 +8,7 @@ from .models import News, Teachers, FeedBackViews, Table
 def index(request):
     news = News.objects.get_queryset().order_by('-id')
     teachers = Teachers.objects.get_queryset().order_by('id')
-    tbl = Table.objects.all()
+    tables = Table.objects.all()
 
     # news
     news_pagination = Paginator(news, 3)
@@ -35,6 +35,6 @@ def index(request):
         'teachers_range': teachers_range,
         'teachers_page': teachers_page,
         'form': form,
-        'table': tbl
+        'tables': tables
     }
     return render(request, 'dist/index.html', context)

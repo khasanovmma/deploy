@@ -364,6 +364,14 @@
                     <p class="statistic__num"><span id="value3">10717</span></p></div>
             </div>
         </div>
+        <h2 class="title">Dars jadvali</h2>
+        <div class="statistic" data-aos="flip-down">
+        <iframe width="100%" height="820px" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTn5WsIFmH1iMtJMPCpJZGmj0Z8RxfO-9PisyT5VCSi76sG4Fm1UzFdCKal5FJxtDA7Z4u5saBfPlzD/pubhtml?widget=true&amp;headers=false"></iframe>
+                   </div>
+        {% for n in tables %}
+        <a class="link__hover news-block__btn" style="text-decoration:none;display: inline-block;
+    margin-top: 10px;" href="{{ n.table.url }}">ko'chirib olish</a>
+        {% endfor %}
     </div>
 </section>
 <section class="kafedra-content sections-body" id="content">
