@@ -30,8 +30,8 @@ def read_sqlite_table():
         # src = f"D:/Personal/Programm/Python/diplom.v3/atsite/media/{records[len(records) - 1][6]}".replace('/', '\\')
         # photo = open(src, 'rb')
         bot.send_message(CHAT_ID, f'<b>{title}</b>.\n\n'
-                                  f'{content}\n\n'
-                                  f'{created_at}')
+                                  f'{content}.')
+                                  # f'{created_at}'
         cursor.close()
 
     except sqlite3.Error as error:

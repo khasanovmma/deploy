@@ -451,7 +451,7 @@
         <div class="pagination">
             <ul class="pagination__ul">
                 {% for pag in page_range %}
-                <li class="pagination__num"><a class="pagination__a" href="?page={{ pag }}">{{ pag }}</a></li>
+                <li class="pagination__num pagination__news"><a class="pagination__a" href="?page={{ pag }}">{{ pag }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -525,19 +525,26 @@
 
         contentBox[1].remove()
         }
-        }, 100);
+        }, 10);
            let contentBox = parsed.querySelector('.content__box')
            div.after(contentBox)
         });
 	    })
 }
-
     let link = document.querySelectorAll('.pagination__a')
 	let newsBox = document.querySelector('.news__box')
+    let newsPagination = document.querySelectorAll('.pagination__news')
+        newsPagination[0].classList.add('active')
+
 
    for (let i=0; i<link.length; i++) {
    link[i].addEventListener('click', (e)=> {
-        console.log('clicked')
+
+
+        for (let j=0; j<newsPagination.length; j++) {
+        newsPagination[j].classList.remove('active')
+         }
+         newsPagination[i].classList.add('active')
 	    e.preventDefault()
 	    newsBox.remove()
 	    get = e.target.getAttribute("href")
@@ -551,7 +558,7 @@
         setTimeout(() => {
         let newsBox = document.querySelectorAll('.news__box')
         newsBox[1].remove()
-        }, 100);
+        }, 10);
            let newBox = parsedResponse.querySelector('.news__box')
            div.after(newBox)
         });
