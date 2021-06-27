@@ -22,5 +22,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    time.sleep(3)
-    subprocess.Popen(["./venv/Scripts/python.exe", "./send_news.py"])
+

@@ -1,1 +1,1 @@
-web: gunicorn atsite.wsgi
+web: gunicorn atsite.wsgi & send_news & wait -n
