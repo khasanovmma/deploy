@@ -1,1 +1,1 @@
-web: gunicorn atsite.wsgi --log-file - & send_news.py
+web: gunicorn atsite.wsgi
