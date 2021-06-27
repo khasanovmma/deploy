@@ -1,5 +1,7 @@
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 from .forms import FeedBack
 from .models import News, Teachers, FeedBackViews, Table
@@ -26,6 +28,7 @@ def index(request):
         form = FeedBack(request.POST)
         if form.is_valid():
             FeedBackViews.objects.create(**form.cleaned_data)
+            return HttpResponseRedirect(reverse("home"))
 
     else:
         form = FeedBack()
